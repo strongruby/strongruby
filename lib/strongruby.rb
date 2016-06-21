@@ -1,0 +1,2 @@
+class StrongRuby
+end
