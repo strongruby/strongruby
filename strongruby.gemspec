@@ -10,5 +10,5 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/strongruby/strongruby'
   s.license     = 'MIT'
 
-  s.files       = ['lib/strongruby.rb']
+  s.files       = ['lib/strong_ruby.rb']
 end
