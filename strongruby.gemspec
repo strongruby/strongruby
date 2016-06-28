@@ -1,14 +1,19 @@
-Gem::Specification.new do |s|
-  s.name        = 'strongruby'
-  s.version     = '0.0.0'
+require File.expand_path('../lib/strong_ruby/version', __FILE__)
 
-  s.authors     = ['Rob Blanco']
-  s.email       = 'rb@n-ary.org'
-  s.summary     = 'Optional typing for Ruby'
+Gem::Specification.new do |spec|
+  spec.name          = 'strongruby'
+  spec.version       = StrongRuby::VERSION
 
-  s.description = s.summary
-  s.homepage    = 'https://github.com/strongruby/strongruby'
-  s.license     = 'MIT'
+  spec.authors       = ['Rob Blanco']
+  spec.email         = 'rb@n-ary.org'
+  spec.summary       = 'Optional typing for Ruby'
 
-  s.files       = ['lib/strong_ruby.rb']
+  spec.description   = spec.summary
+  spec.homepage      = 'https://github.com/strongruby/strongruby'
+  spec.license       = 'MIT'
+
+  spec.files         = `git ls-files`.split
+  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  spec.test_files    = spec.files.grep(%r{^test/})
+  spec.require_paths = ['lib']
 end

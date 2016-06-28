@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift(File.expand_path('../../lib', __FILE__))
+require 'strong_ruby/runner/strong_ruby'
+
+StrongRuby::Runner::StrongRuby.run(ARGV)
