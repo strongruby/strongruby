@@ -61,6 +61,7 @@ module StrongRuby
     def parse_options(options)
       @option_parser.parse!(options)
 
+      # The rest of the method performs file retrieval. TODO RuboCop-ify.
       options << Dir.pwd if options.empty?
 
       options.each do |file_or_dir|
@@ -93,8 +94,16 @@ module StrongRuby
     end
 
     def list_files(paths)
-      paths.each do |_path|
-        # TODO
+      paths.each do |path|
+        # NOTE Inlined from Rubocop::PathUtil.relative_path
+        base_dir = Dir.pwd
+        if path.start_with?(base_dir)
+          path_name = path[(base_dir.length + 1)..-1]
+        else
+          path_name = Pathname.new(File.expand_path(path))
+          path_name.relative_path_from(Pathname.new(base_dir)).to_s
+        end
+        puts path_name
       end
     end
 
