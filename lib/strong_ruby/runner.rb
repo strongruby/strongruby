@@ -59,7 +59,7 @@ module StrongRuby
     end
 
     def parse_options(options)
-      @option_parser.parse(options)
+      @option_parser.parse!(options)
 
       options << Dir.pwd if options.empty?
 
